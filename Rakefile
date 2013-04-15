@@ -5,7 +5,13 @@ namespace "test" do
 
   desc "Create test projects"
   task :projects do 
-    projects = Mongo::MongoClient.new.db("photography").collection("projects")
+    db = URI.parse(ENV['MONGOHQ_URL'])
+    db_name = db.path.gsub(/^\//, '')
+    @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+    @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+    @db_connection
+    
+    projects = @db_connection.collection("projects")
     projects.remove
 
     projects.insert(:name => "jeicoacoara", :country => "brazil", :images => 
