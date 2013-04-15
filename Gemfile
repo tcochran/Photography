@@ -7,4 +7,4 @@ gem "less"
 gem 'libv8'
 gem "therubyracer", "~> 0.10.2"
 gem 'mongo'
-gem "aws-s3"
+gem "sass"
