@@ -1,23 +1,16 @@
+body {
+  margin-left: 10px;
+  padding: 0;
+}
+
 .title {
   font-family: Arial;
   font-weight: bold;
-  font-size: 95px;
+  font-size: 40px;
   white-space: nowrap;
-  position: absolute;
-  line-height: 100%; 
-  top: 0px;
+  letter-spacing: 10px;
   visibility: visible;
-}
-
-.header
-{
-  position: relative;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 95px;
-  visibility: hidden;
-  margin-bottom: 40px;
-  line-height: 100%;
+  margin: 10px 0 20px;
 }
 
 ul
@@ -44,5 +37,4 @@ ul
     color: black;
     text-decoration: underline;
   }
-
 }

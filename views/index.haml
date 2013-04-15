@@ -1,13 +1,10 @@
+.header
+  .title
+    TRAVELS
 .content 
-  .header
-    TIM
-    .title
-      TIMOTHY COCHRAN PHOTOGRAPHY
   %ul.projects
-    %li 
-      %a{:href => "jeicoacoara"} jericoacoara, brazil
-    %li 
-      %a{:href => "recifeantiguo"} recife antiguo, brazil
-    %li
-      %a{:href => "salvador"} salvador, brazil 
+    - projects.each do |project|
+      %li 
+        %a{:href => "projects/#{project['name']}"} 
+          = project["name"] + ", " + project["country"]
   %img{:src => "images/church.jpg", :width => "800px", :height => "533px"}
