@@ -8,3 +8,5 @@ gem 'libv8'
 gem "therubyracer", "~> 0.10.2"
 gem 'mongo'
 gem "sass"
+gem "rmagick"
+gem "parallel"

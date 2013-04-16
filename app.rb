@@ -4,6 +4,9 @@ require 'sass'
 require 'mongo'
 require 'uri'
 
+configure :development do
+  ENV['MONGOHQ_URL'] = "mongodb://localhost/photography"
+end
 
 get '/' do
   projects = Project.all
