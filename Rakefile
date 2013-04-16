@@ -1,8 +1,6 @@
 require "rubygems"
 require "mongo"
-require "RMagick"
-require 'benchmark'
-require 'parallel'
+
 
 namespace "test" do
 
@@ -25,6 +23,10 @@ namespace "test" do
   end
 
   task :upload_images do
+    require "RMagick"
+    require 'parallel'
+    require 'benchmark'
+
     bench = Benchmark.measure do
       upload_images
     end
