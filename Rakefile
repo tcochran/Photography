@@ -55,8 +55,6 @@ namespace "test" do
   end
 
   def connection 
-    ENV['MONGOHQ_URL'] = "mongodb://localhost/photography"
-
     db = URI.parse(ENV['MONGOHQ_URL'])
     db_name = db.path.gsub(/^\//, '')
     @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
