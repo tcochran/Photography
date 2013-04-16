@@ -1,5 +1,5 @@
 body {
-  margin-left: 10px;
+  margin: 0;
   padding: 0;
 }
 
@@ -37,4 +37,20 @@ ul
     color: black;
     text-decoration: underline;
   }
+}
+
+section.project
+{
+  background-color: white; 
+  overflow:hidden;
+  padding-top: 40px;
+
+  img { 
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 1px solid #CCC;
+  } 
+
 }
