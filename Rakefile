@@ -1,5 +1,6 @@
 require "rubygems"
 require "mongo"
+require "RMagick"
 
 
 namespace "test" do
@@ -11,7 +12,7 @@ namespace "test" do
     projects.remove
 
     projects.insert(:name => "jericoacoara", :country => "brazil", :images => 
-      ["1024/DSC02245_1024.jpg", "1024/DSC02262_1024.jpg", "1024/DSC02267_1024.jpg", "1024/DSC02280_1024.jpg", "1024/DSC02335_1024.jpg", "1024/DSC02359_1024.jpg", "1024/DSC02368_1024.jpg", "1024/DSC02373_1024.jpg", "1024/DSC02391_1024.jpg", "1024/DSC02392_2_1024.jpg", "1024/DSC02501_1024.jpg", "1024/DSC02506_1024.jpg", "1024/DSC02625_1024.jpg"]
+      ["1024/DSC02245_1024.jpg", "1024/DSC02262_1024.jpg", "1024/DSC02267_1024.jpg", "1024/DSC02280_1024.jpg", "1024/DSC02335_1024.jpg", "1024/DSC02359_1024.jpg", "1024/DSC02373_1024.jpg", "1024/DSC02391_1024.jpg", "1024/DSC02392_2_1024.jpg", "1024/DSC02501_1024.jpg", "1024/DSC02506_1024.jpg", "1024/DSC02625_1024.jpg"]
     )
     projects.insert(:name => "recife antiguo", :country => "brazil", :images => 
       ["DSC02700.JPG", "DSC02750.JPG", "DSC02757.JPG", "DSC02765.JPG", "DSC02766.JPG", "DSC02768.jpg", "DSC02787.JPG"]
@@ -23,7 +24,6 @@ namespace "test" do
   end
 
   task :upload_images do
-    require "RMagick"
     require 'parallel'
     require 'benchmark'
 
@@ -49,13 +49,10 @@ namespace "test" do
         p "#{folder}/1024/#{File.basename(file_name, '.jpg')}_1024.jpg"
         file.write("#{folder}/1024/#{File.basename(file_name, '.jpg')}_1024.jpg")
       end
-
-      p files = Dir["#{folder}/*jpg"].map { |file_name| "#{File.basename(file_name, '.jpg')}_1024.jpg" }
     end
   end
 
   def connection 
-    p ENV
     db = URI.parse(ENV['MONGOHQ_URL'])
     db_name = db.path.gsub(/^\//, '')
     @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)

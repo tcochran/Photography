@@ -1,0 +1,9 @@
+.header
+  .title
+    TRAVELS
+.content
+  %ul.projects
+    %li{ :"ng-repeat" => "project in projects"}
+      %a{:href => "#/projects/{{project.name}}", :"ng-model" => "project.name"} 
+        {{project.name}}
+  %img{:src => "images/church.jpg", :width => "800px", :height => "533px"}

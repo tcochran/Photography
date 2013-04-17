@@ -1,10 +1,2 @@
-.header
-  .title
-    TRAVELS
-.content 
-  %ul.projects
-    - projects.each do |project|
-      %li 
-        %a{:href => "projects/#{project['name']}"} 
-          = project["name"] + ", " + project["country"]
-  %img{:src => "images/church.jpg", :width => "800px", :height => "533px"}
+%div{ :"ng-view" =>""}
+
