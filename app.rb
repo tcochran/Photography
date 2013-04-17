@@ -9,18 +9,8 @@ configure :development do
   ENV['MONGOHQ_URL'] = "mongodb://localhost/photography"
 end
 
-get '/' do
-  projects = Project.all
-  haml :index, :locals => { :projects => projects }
-end
-
 get '/css/index.css' do
   scss :"scss/index"
-end
-
-get '/projects/:project_name' do |project_name|
-  project = Project.find_by_name project_name
-  haml :project, :locals => { :project => project }
 end
 
 get '/projects_template' do 
@@ -33,6 +23,10 @@ end
 
 get '/projects.json' do
   Project.all.to_json
+end
+
+get '/*' do
+  haml :index
 end
 
 class Project
