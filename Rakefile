@@ -9,6 +9,11 @@ AWS::S3::DEFAULT_HOST.replace "s3-us-west-2.amazonaws.com"
 
 IMAGE_SIZES = { :"1024" => [1024, 768] }
 
+task :deploy do
+  sh "git push heroku master"
+  sh "heroku run 'rake test:projects'"
+end
+
 namespace "test" do
 
   desc "Create test projects"
@@ -34,6 +39,7 @@ namespace "test" do
   task :upload_images do
     upload_images
   end
+
 
   def upload_images
     amazon_connection
