@@ -5,15 +5,13 @@ GEM
     bson (1.8.5)
     bson_ext (1.8.5)
       bson (~> 1.8.5)
-    commonjs (0.2.6)
     eventmachine (1.0.3)
     haml (4.0.2)
       tilt
-    less (2.3.1)
-      commonjs (~> 0.2.6)
     libv8 (3.3.10.4)
     mongo (1.8.5)
       bson (~> 1.8.5)
+    parallel (0.6.4)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -42,9 +40,9 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   haml
-  less
   libv8
   mongo
+  parallel
   rmagick
   sass
   sinatra

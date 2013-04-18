@@ -11,21 +11,15 @@ angular.module('project', []).
 function ProjectsCtrl($scope, $http) {
   console.log("projects")
   $http({method: 'GET', url: '/projects.json'}).
-    success(function(data, status, headers, config) { $scope.projects = data });
-
-  $scope.query = "jeri";
-
-  
+    success(function(data, status, headers, config) { $scope.projects = data });  
 }
 
 function ProjectCtrl($scope, $http, $routeParams) {
   
   var imageHeight = 782;
-
   $scope.selectedPhoto = 0;
-
-  $http({method: 'GET', url: '/projects.json'}).
-    success(function(data, status, headers, config) { $scope.project = data[0]; });
+  $http({method: 'GET', url: '/projects/' + $routeParams.projectName + '.json' }).
+    success(function(data, status, headers, config) { $scope.project = data; });
 
   $scope.nextPhoto = function() {  
     if ($scope.selectedPhoto < $scope.project.images.length - 1)

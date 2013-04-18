@@ -25,11 +25,15 @@ get '/animation' do
   haml :animation
 end
 
+get '/projects/:projectName.json' do |projectName|
+  Project.find_by_name(projectName).to_json
+end
+
 get '/projects.json' do
   Project.all.to_json
 end
 
-get '/*' do
+get '/*' do |projectName|
   haml :index
 end
 
