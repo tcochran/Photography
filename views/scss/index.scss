@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Arial;
+  text-align: center;
 }
 
 .title {
@@ -40,18 +41,61 @@ ul
   }
 }
 
-section.project
+.project
 {
   background-color: white; 
   overflow:hidden;
   padding-top: 40px;
+  display: block;
+  width: 1208px;
+  margin-right: auto;
+  margin-left: auto;
 
   img { 
     margin-bottom: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
     border: 1px solid #CCC;
   } 
 
+  .left-side { float: left; }
+  .right-side { float: left; }
+
+  .image-list {
+    float: left; 
+    width: 1024px;
+    position: absolute;
+    top: 0px;
+  }
+
+  @mixin photo-nav {
+    margin: 300px 20px 0 20px;
+    height: 60px; 
+    width: 30px; 
+    
+    .arrow { 
+      cursor: pointer; 
+      fill:#EEE;
+      stroke:#EEE;
+      stroke-width:1;
+    }
+  }
+
+  .previous-photo { 
+    @include photo-nav;
+  }
+
+  .next-photo { 
+    @include photo-nav;  
+  }
+
+  .image-viewer
+  {
+    height: 800px;
+    width: 1024px;
+    overflow: visible;
+    position: relative;
+    float: left;
+
+  }
 }
+
+

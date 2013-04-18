@@ -21,6 +21,10 @@ get '/project_template' do
   haml :project_template, :layout => false
 end
 
+get '/animation' do 
+  haml :animation
+end
+
 get '/projects.json' do
   Project.all.to_json
 end

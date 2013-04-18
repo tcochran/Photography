@@ -1,2 +1,12 @@
-%section.project
-  %img{:"ng-repeat" => "image in project.images", :src => "https://s3-us-west-2.amazonaws.com/photogaphy/{{image}}" }
+.project
+  .left-side
+    %svg{:class => "next-photo"}
+      %polygon{ :class => "arrow", :"ng-click" => "previousPhoto()", :points => "0,30 30,0 30,60" }
+  .image-viewer
+    .image-list
+      %img{:"ng-repeat" => "image in project.images", 
+      :src => "https://s3-us-west-2.amazonaws.com/photogaphy/{{image}}",
+      :"data-first" => "{{$first}}", :"data-last" => "{{$last}}" }
+  .right-side
+    %svg{:class => "next-photo"}
+      %polygon{ :class => "arrow", :"ng-click" => "nextPhoto()", :points => "0,0 0,60 30,30" }
