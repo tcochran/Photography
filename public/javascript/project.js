@@ -9,7 +9,6 @@ angular.module('project', []).
 
 
 function ProjectsCtrl($scope, $http) {
-  console.log("projects")
   $http({method: 'GET', url: '/projects.json'}).
     success(function(data, status, headers, config) { $scope.projects = data });  
 }
@@ -20,6 +19,13 @@ function ProjectCtrl($scope, $http, $routeParams) {
   $scope.selectedPhoto = 0;
   $http({method: 'GET', url: '/projects/' + $routeParams.projectName + '.json' }).
     success(function(data, status, headers, config) { $scope.project = data; });
+  
+  $(document).keydown(function(kevent) { 
+    if (kevent.keyCode == 39 || kevent.keyCode == 13 || kevent.keyCode == 32)
+     $scope.nextPhoto(); 
+    else if (kevent.keyCode == 37)
+      $scope.previousPhoto();
+  });
 
   $scope.nextPhoto = function() {  
     if ($scope.selectedPhoto < $scope.project.images.length - 1)
@@ -37,3 +43,5 @@ function ProjectCtrl($scope, $http, $routeParams) {
     }
   };  
 }
+
+
