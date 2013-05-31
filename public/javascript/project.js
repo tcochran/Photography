@@ -15,7 +15,7 @@ function ProjectsCtrl($scope, $http) {
 
 function ProjectCtrl($scope, $http, $routeParams) {
   
-  var imageHeight = 782;
+  var imageHeight = 632;
   $scope.selectedPhoto = 0;
   $http({method: 'GET', url: '/projects/' + $routeParams.projectName + '.json' }).
     success(function(data, status, headers, config) { $scope.project = data; });
@@ -31,7 +31,7 @@ function ProjectCtrl($scope, $http, $routeParams) {
     if ($scope.selectedPhoto < $scope.project.images.length - 1)
     { 
       $scope.selectedPhoto++;      
-      $(".image-list").animate({top: -($scope.selectedPhoto * imageHeight) + 'px'}, 500);
+      $(".image-list").animate({top: -($scope.selectedPhoto * imageHeight) + 'px'}, 350);
     }
   };
 
@@ -39,7 +39,7 @@ function ProjectCtrl($scope, $http, $routeParams) {
     if ($scope.selectedPhoto > 0)
     {
       $scope.selectedPhoto--;
-      $(".image-list").animate({top: -($scope.selectedPhoto * imageHeight) + 'px'}, 500);
+      $(".image-list").animate({top: -($scope.selectedPhoto * imageHeight) + 'px'}, 350);
     }
   };  
 }
